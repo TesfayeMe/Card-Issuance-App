@@ -1,5 +1,23 @@
 const userService = require('../services/user.service');
 
+//update user
+const updateUser = async (req, res) => {
+    const userData = req.body;
+    const checkExistingUser = await userService.getUserByEmail(userData.emailAddress);
+    if (!checkExistingUser) {
+        return res.status(400).json({ message: 'Email_does_not_exist' });
+    }
+    else
+    {  
+    const updateRes = await userService.updateUser(userData);
+        if (updateRes.success) {
+            res.status(201).json({ message: 'User updated successfully', userEmail: updateRes.userEmail });
+        } else {
+            res.status(500).json({ message: 'Failed_to_update_user' });
+        }
+    }
+};
+
 //create user
 const createUser = async (req, res) => {
     const userData = req.body;
@@ -14,10 +32,9 @@ const createUser = async (req, res) => {
             res.status(201).json({ message: 'User created successfully', userId: creationResult.userId });
         } else {
             res.status(500).json({ message: 'Failed_to_create_user' });
-        }
+        }   
     }
 };
-
 //get all users
 const getAllUsers = async (req, res) => {
    const allUsers = await userService.getAllUsers(req, res);
@@ -50,6 +67,7 @@ const getUserById = async (req, res) => {
 
 module.exports = {
   createUser,
+  updateUser,
   getAllUsers,
   getUserById
 };

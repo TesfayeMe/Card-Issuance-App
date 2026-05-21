@@ -1,29 +1,69 @@
 const dbConnection = require('../config/db.config').promise();
 const bcrypt = require('bcrypt');
+
+//update user
+const updateUser = async (userData) => {
+    const { firstName, middleName, lastName, emailAddress, phoneNumber, password } = userData;
+    const hashedPassword = await bcrypt.hash(password, 10);
+    console.log('Hashed password:', hashedPassword);
+    const status = 'ACTIVE';
+
+  const query = 'UPDATE users SET first_name = ?, middle_name = ?, last_name = ?, phone_number = ?, password_hash = ?, status = ? WHERE email = ?';
+  const [updateResult] = await dbConnection.query(query, [firstName, middleName, lastName, phoneNumber, hashedPassword, status, emailAddress]);
+  if (updateResult.affectedRows === 0) {
+    console.error('Failed to update user:', updateResult);
+    return { success: false, error: `Failed to update user ${updateResult.error}` };
+  }
+  else {
+    console.log('User updated successfully with email Address:', emailAddress);
+    return { success: true, userEmail: emailAddress };
+  }
+};
+
 //create user
 const createUser = async (userData) => {
-    const adminId = 15; // Placeholder for admin ID, replace with actual logic to get admin ID
-  const { firstName, middleName, lastName, emailAddress, phoneNumber, password } = userData;
-  const hashedPassword = await bcrypt.hash(password, 10);
-  console.log('Hashed password:', hashedPassword);
-  const query = 'INSERT INTO users (first_name, middle_name, last_name, email, phone_number, password_hash, created_by) VALUES (?, ?, ?, ?, ?, ?, ?)';
-  const [result] = await dbConnection.query(query, [firstName, middleName, lastName, emailAddress, phoneNumber, hashedPassword, adminId]);
-  if (result.affectedRows === 0) {
-    console.error('Failed to create user:', result);
-    return { success: false, error: `Failed to create user ${result.error}` };
+  const adminId = 15; 
+  const { emailAddress, role_id } = userData;
+
+  // 1. Start the transaction on your connection
+  await dbConnection.beginTransaction();
+
+  try {
+    // 2. Insert the user
+    const userQuery = 'INSERT INTO users (email, created_by) VALUES (?, ?)';
+    const [userResult] = await dbConnection.query(userQuery, [emailAddress, adminId]);
+
+    // Check if the user insert actually worked
+    if (userResult.affectedRows === 0 || !userResult.insertId) {
+      throw new Error('Failed to insert user into the database');
+    }
+
+    const userId = userResult.insertId;
+
+    // 3. Insert the user role
+    const roleQuery = 'INSERT INTO user_roles (user_id, role_id) VALUES (?, ?)';
+    const [roleResult] = await dbConnection.query(roleQuery, [userId, role_id]);
+
+    // Check if the role assignment worked
+    if (roleResult.affectedRows === 0) {
+      throw new Error('Failed to assign role to the created user');
+    }
+
+    // 4. Commit the transaction if everything succeeded
+    await dbConnection.commit();
+    console.log('User and role created successfully. User ID:', userId);
+    
+    return { success: true, userId: userId };
+
+  } catch (error) {
+    // 5. Rollback ALL changes if any error occurs above
+    await dbConnection.rollback();
+    console.error('Transaction failed. Rolled back changes. Error:', error.message);
+    
+    return { success: false, error: error.message };
   }
-  else if (result.insertId)
-  {
-    console.log('User created successfully with ID:', result.insertId);
-    return { success: true, userId: result.insertId };
-  }
-  else
-  {
-    console.error('Unexpected result from user creation:', error);
-    return { success: false, error: 'Unexpected result from user creation' };
-  }
-  console.log('User creation result:', result);
 };
+
 
 //check if email already exists
 const getUserByEmail = async (email) => {
@@ -54,7 +94,6 @@ const getAllUsers = async (req, res) => {
   }
   }
 
-
 const getUserById = async (req, res) => {
   const { id } = req.params;
   const query = 'SELECT * FROM users WHERE id = ?';
@@ -75,5 +114,6 @@ module.exports = {
   createUser,
   getAllUsers,
   getUserById,
-  getUserByEmail
+  getUserByEmail,
+  updateUser
 };
