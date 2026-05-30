@@ -3,6 +3,7 @@ const userService = require('../services/user.service');
 //update user
 const updateUser = async (req, res) => {
     const userData = req.body;
+   
     const checkExistingUser = await userService.getUserByEmail(userData.emailAddress);
     if (!checkExistingUser) {
         return res.status(400).json({ message: 'Email_does_not_exist' });
@@ -37,6 +38,8 @@ const createUser = async (req, res) => {
 };
 //get all users
 const getAllUsers = async (req, res) => {
+     const user = req.user; // Get the logged-in user's information
+    console.log("User in controller:", user); // Debugging line to check the user object
    const allUsers = await userService.getAllUsers(req, res);
    if(!allUsers || allUsers.length === 0) {
     return res.status(404).json({ message: 'No users found' });
@@ -65,9 +68,40 @@ const getUserById = async (req, res) => {
 };  
   
 
+//disable user
+const changeUserStatus = async (req, res) => {
+    const userId = req.params.id;
+    const disableRes = await userService.changeUserStatus(userId);
+    if (disableRes.success) {
+        res.status(200).json({ message: 'User disabled successfully', userId: disableRes.userId });
+    } else {
+        res.status(500).json({ message: 'Failed to disable user' });
+    }
+};
+
+//change user roles
+const changeUserRoles = async (req, res) => {
+    const userId = req.params.id;
+    const managerId = 20; 
+    const { role } = req.body;
+    const updateData = {
+        userId: userId,
+        role: role,
+        managerId: managerId
+    };
+    const changeRolesRes = await userService.changeUserRoles(updateData);
+    if (changeRolesRes.success) {
+        res.status(200).json({ message: 'User roles updated successfully', userId: changeRolesRes.userId });
+    } else {    
+        res.status(500).json({ message: 'Failed to update user roles' });
+    }
+};
+
 module.exports = {
   createUser,
   updateUser,
   getAllUsers,
-  getUserById
+  getUserById,
+  changeUserStatus,
+  changeUserRoles
 };

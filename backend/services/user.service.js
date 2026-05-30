@@ -108,12 +108,43 @@ const getUserById = async (req, res) => {
     throw err;
   }
   }
+//change user status
+const changeUserStatus = async (userId) => {
+  const query = 'UPDATE users SET status = ? WHERE id = ?';  
+    const [updateResult] = await dbConnection.query(query, ['DISABLED', userId]);
+    if (updateResult.affectedRows === 0) {
+      console.error('Failed to disable user:', updateResult);
+      return { success: false, error: `Failed to disable user ${updateResult.error}` };
+    }
+    else {
+      console.log('User disabled successfully with ID:', userId);
+      return { success: true, userId: userId };
+    }
+  } 
 
+//change user roles
+const changeUserRoles = async (updateData) => {
+  const { userId, role, managerId } = updateData;
+  console.log('Changing role for user ID:', userId, 'to role ID:', role);
+  const changeRolesQuery = 'update user_roles set role_id = ?, updated_by = ? where user_id = ?';
+  const changeRolesRes = await dbConnection.query(changeRolesQuery, [role, managerId, userId]);
+  if (changeRolesRes[0].affectedRows === 0) {
+    console.error('Failed to delete existing roles for user:', changeRolesRes);
+    return { success: false, error: `Failed to change user role for user ${changeRolesRes.error}` };
+  }
+  else {
+return { success: true, userId: userId };
+  }
+
+};
+  
 
 module.exports = {
   createUser,
   getAllUsers,
   getUserById,
+  changeUserStatus,
   getUserByEmail,
-  updateUser
+  updateUser,
+  changeUserRoles
 };
