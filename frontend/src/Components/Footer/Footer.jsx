@@ -1,8 +1,12 @@
+import './footer.css'
 const Footer = () => {
     return (
-        <footer>
-            <p>&copy; 2023 My App. All rights reserved.</p>
-        </footer>
+        <div className="footer">
+            <div className="footer-content">
+                <p>&copy; 2026 Card Issuance App.</p><br />
+                <p>All rights reserved.</p>
+            </div>
+        </div>
     );
 }
 export default Footer;
