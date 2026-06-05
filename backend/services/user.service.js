@@ -8,8 +8,9 @@ const updateUser = async (userData) => {
     console.log('Hashed password:', hashedPassword);
     const status = 'ACTIVE';
 
-  const query = 'UPDATE users SET first_name = ?, middle_name = ?, last_name = ?, phone_number = ?, password_hash = ?, status = ? WHERE email = ?';
-  const [updateResult] = await dbConnection.query(query, [firstName, middleName, lastName, phoneNumber, hashedPassword, status, emailAddress]);
+  // const query = 'UPDATE users SET first_name = ?, middle_name = ?, last_name = ?, phone_number = ?, password_hash = ?, status = ? WHERE email = ?';
+  const query = 'UPDATE users SET first_name = ?, middle_name = ?, phone_number = ?, password_hash = ?, status = ? WHERE email = ?';
+  const [updateResult] = await dbConnection.query(query, [firstName, lastName, phoneNumber, hashedPassword, status, emailAddress]);
   if (updateResult.affectedRows === 0) {
     console.error('Failed to update user:', updateResult);
     return { success: false, error: `Failed to update user ${updateResult.error}` };

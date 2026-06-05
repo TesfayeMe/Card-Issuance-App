@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 //check if the user is logged in by verifying the token
 const isLoggedIn = (req, res, next) => {
+    try{
     const userToken = req.headers['user-access-token'];
     if (!userToken) {
         return res.status(401).json({ error: 'Access denied. No token provided.' });
@@ -13,12 +14,18 @@ const isLoggedIn = (req, res, next) => {
         // console.log('Decoded token:', decodedToken);
         next();
     } catch (err) {
-        if (err.name === 'TokenExpiredError') {
-            return res.status(401).json({ message: 'token_expired.' });
-        }
-        console.error('Error verifying token:', err);
-        return res.status(401).json({ error: 'Invalid token.' });
+    if (err.name === 'TokenExpiredError') {
+        // Add status: false to unify your endpoint signatures
+        return res.status(401).json({ status: false, message: 'token_expired.' });
     }
+    console.error('Error verifying token:', err);
+    return res.status(401).json({ status: false, error: 'Invalid token.' });
+}
+}catch (error) {
+    console.error("Backend Auth Error:", error.message);
+    // Prevents the 500 status crash by returning a structured JSON response instead
+    return res.status(401).json({ status: false, message: 'Invalid or expired token structure' });
+  }
 };
 //refresh the token if user and token are valid and not expired
 const refreshToken = async (req, res) => {

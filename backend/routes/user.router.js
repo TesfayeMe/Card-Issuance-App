@@ -6,7 +6,7 @@ const authMiddleware = require('../middlemare/auth.middleware');
 router.post('/', [authMiddleware.isLoggedIn, authMiddleware.isAdminOrManager], userController.createUser);
 router.get('/', [authMiddleware.isLoggedIn, authMiddleware.isAdminOrManager], userController.getAllUsers);
 router.get('/:id', [authMiddleware.isLoggedIn, authMiddleware.isAdminOrManager], userController.getUserById);
-router.put('/:id', [authMiddleware.isLoggedIn, authMiddleware.isAdminOrManager], userController.updateUser);
+router.put('/update/profile/', userController.updateUser);
 router.patch('/:id/status', [authMiddleware.isLoggedIn, authMiddleware.isAdminOrManager], userController.changeUserStatus);
 router.put('/:id/roles', [authMiddleware.isLoggedIn, authMiddleware.isAdminOrManager], userController.changeUserRoles);
 module.exports = router;
