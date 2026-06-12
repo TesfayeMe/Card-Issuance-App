@@ -6,7 +6,25 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { useEffect, useState } from "react";
 const DashboardRecentActions = ()=>{
+
+  // Initialize with the current window width
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    // Handler function to update state with the fresh width
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    // Attach the window resize event listener
+    window.addEventListener('resize', handleResize);
+    // Remove the event listener when the component unmounts
+    return () => window.removeEventListener('resize', handleResize);
+  }, []); // Empty array ensures this effect runs only once on mount
+  
+
+
+
+
+
     const stockMovmentData = [
   {
     date: 'May 07, 2026',
@@ -14,7 +32,7 @@ const DashboardRecentActions = ()=>{
     description: 'Paper Feed Roller',
     movmentType: 'OUT',
     quantityMoved: 2,
-    performedBy: 'Tesfaye Melaku'
+    performedBy: 'Tesfaye'
   },
   {
     date: 'May 09, 2026',
@@ -22,7 +40,7 @@ const DashboardRecentActions = ()=>{
     description: 'Fuser Assembly',
     movmentType: 'OUT',
     quantityMoved: 1,
-    performedBy: 'Abebe Kebede'
+    performedBy: 'Abebe'
   },
   {
     date: 'May 12, 2026',
@@ -30,7 +48,7 @@ const DashboardRecentActions = ()=>{
     description: 'Toner Cartridge',
     movmentType: 'IN',
     quantityMoved: 10,
-    performedBy: 'Marta Bekele'
+    performedBy: 'Marta'
   },
   {
     date: 'May 15, 2026',
@@ -38,7 +56,7 @@ const DashboardRecentActions = ()=>{
     description: 'Separation Pad',
     movmentType: 'OUT',
     quantityMoved: 3,
-    performedBy: 'Samuel Desta'
+    performedBy: 'Samuel'
   },
   {
     date: 'May 18, 2026',
@@ -46,7 +64,7 @@ const DashboardRecentActions = ()=>{
     description: 'Transfer Belt Unit',
     movmentType: 'IN',
     quantityMoved: 4,
-    performedBy: 'Hana Tadesse'
+    performedBy: 'Hana'
   }
 ]
 
@@ -94,6 +112,10 @@ return(
 <div className="dashboard-recent-actions-header">
     <span className="dashboard-recent-actions-header-title">
         Recent Stock Movments
+<h1>
+        {windowWidth}
+
+</h1>
     </span>
     <span className="dashboard-recent-actions-header-view-all-movemnt-button">
         <span>
@@ -123,9 +145,17 @@ return(
               key={index}
               sx={{ '&:last-child td, &:last-child th': { border: 0} }} // Removes last border
             >
-              <TableCell component="th" scope="row">{stock.date}</TableCell>
-              <TableCell >{stock.refernce}</TableCell>
-              <TableCell >{stock.description}</TableCell>
+              <TableCell component="th" scope="row">{windowWidth < 1800 && windowWidth > 1455 ? stock.date.substring(0,6): stock.date}</TableCell>
+              <TableCell >
+                {windowWidth < 1610 && windowWidth > 1455  && stock.refernce.length > 9 ? stock.refernce.substring(0, 9) +'...': stock.refernce  }
+                {/* {stock.refernce} */}
+                </TableCell>
+              <TableCell >
+                {windowWidth < 1515 && windowWidth > 1455 && stock.description.length > 10 ? stock.description.substring(0, 10) +'...': stock.description}
+
+                {/* {stock.description} */}
+                
+                </TableCell>
               <TableCell ><span className={`${stock.movmentType==='IN' ? 'green-color': 'red-color'}`}>{stock.movmentType}</span></TableCell>
               <TableCell >{stock.quantityMoved}</TableCell>
               <TableCell >{stock.performedBy}</TableCell>
@@ -163,9 +193,16 @@ return(
           <TableRow style={{backgroundColor : '#f8f8f8'}} >
             <TableCell><strong>Job ID</strong></TableCell>
             <TableCell ><strong>File Nmae</strong></TableCell>
-            <TableCell ><strong>Total Records</strong></TableCell>
+            <TableCell ><strong>
+              {windowWidth < 1650 && windowWidth > 1455 ? "T.Records" : "Total Records"}
+              
+              
+              </strong></TableCell>
             <TableCell ><strong>Status</strong></TableCell>
-            <TableCell ><strong>Created At</strong></TableCell>
+            <TableCell ><strong>
+              {windowWidth < 1595 && windowWidth > 1455  ? "Time" : "Created At"}
+              
+              </strong></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -175,10 +212,22 @@ return(
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }} // Removes last border
             >
               <TableCell component="th" scope="row">{idProc.jobId}</TableCell>
-              <TableCell >{idProc.fileName}</TableCell>
+              <TableCell >
+                {
+                  windowWidth < 1490 && windowWidth > 1455  && idProc.fileName.length > 10 ? idProc.fileName.substring(0, 10) + '....xlsx':
+                windowWidth < 1545 && windowWidth > 1455 && idProc.fileName.length > 15 ? idProc.fileName.substring(0, 15) + '....xlsx': 
+                idProc.fileName}
+                
+                {/* {idProc.fileName} */}
+                
+                </TableCell>
               <TableCell >{idProc.totalRecords}</TableCell>
               <TableCell ><span className={`${idProc.status==='Completed' ? 'green-color': idProc.status==='Processing'? 'gray-color': 'red-color'}`}>{idProc.status}</span></TableCell>
-              <TableCell >{idProc.createdAt}</TableCell>
+              <TableCell >
+                {windowWidth < 1700 ? idProc.createdAt.substring(0, 6): idProc.createdAt}
+                {/* {idProc.createdAt} */}
+                
+                </TableCell>
             </TableRow>
           ))}
         </TableBody>

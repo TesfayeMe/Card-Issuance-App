@@ -7,11 +7,8 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 
 import DashboardMiddleCards from './DashboardMiddleCard'
 import DashboardRecentActions from './DashboardRecentActions'
+import { useEffect, useState } from "react";
 const Dashboard = () => {
-
-
-
-
 
 
   const cardData = [

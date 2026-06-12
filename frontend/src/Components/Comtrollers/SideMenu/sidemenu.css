@@ -140,13 +140,18 @@
     display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 912px) {
     .side-menu {
-        width: 100%;
-        height: auto;
-        flex-direction: row;
-        justify-content: space-around;
-        padding-top: 10px;
+      width: 50%;
+      border: 2px solid green;
+        position: absolute;
+        z-index: 10001;
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        min-width: 300px;
+        left: 0;
+        display: none;
     }
 
     .side-menu a {
