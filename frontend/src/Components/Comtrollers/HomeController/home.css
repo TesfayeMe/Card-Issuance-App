@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.home-page-container
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    position: relative;
+}
+.home-page-header
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(217, 223, 230);
+    padding: 3px 40px;
+    position: sticky;
+    background-color: white;
+    top: 0;
+    z-index: 1000;
+}
+.home-page-header-left-side
+{
+    display: flex;
+    gap: 10px;
+}
+.home-page-header-left-side-logo
+{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+}
+.home-page-header-left-side-logo img
+{
+width: 50px;
+height: 40px;
+}
+.home-page-header-left-side-logo-txt
+{
+    font-weight: bold;
+    font-size: 20px;
+    color: #003c80;
+}
+.home-page-header-right-side
+{
+    display: flex;
+    gap: 10px;
+}
+.home-page-header-links
+{
+    text-decoration: none;
+    color: black;
+    padding: 0 8px;
+}
+.login-link
+{
+    background-color: #0c55a8;
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: white !important;
+}
+.home-page-main
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 40px;
+}
+.home-page-main-banners
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 50vh;
+}
+.banner-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    border: 3px solid  #008000;
+    height: 50vh;
+    top: 0;
+}
+.home-page-main-services
+{
+    display: flex;
+    width: 100%;
+    border: 3px solid  #ffff00;
+    padding: 20px 0;
+    margin-top: 10px;
+    height: 60vh;
+}
+.home-page-main-features
+{
+    display: flex;
+    width: 100%;
+    padding: 20px 0;
+    border: 3px solid  #0059ff;
+    margin-top: 10px;
+    height: 60vh;
+}
+.home-page-main-support
+{
+     display: flex;
+    width: 100%;
+    border: 3px solid  #ff0000;
+    padding: 20px 0;
+    margin-top: 10px;
+    height: 60vh;
+}
+.home-page-footer
+{
+    margin: 30px 0;
+}

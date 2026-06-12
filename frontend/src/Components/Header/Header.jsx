@@ -1,8 +1,8 @@
-const Header = () => {
+const Header = async ()=>{
     return (
-        <header>
-            <h1>My App Header</h1>
-        </header>
-    );
+        <div>
+            Headers
+        </div>
+    )
 }
 export default Header;

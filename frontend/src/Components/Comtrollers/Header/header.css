@@ -133,12 +133,22 @@
     flex-direction: column;
     text-align: left;
     gap: 2px;
-    font-size: 12px;
+    letter-spacing: 1px;
 }
 .user-name
 {
     font-weight: bold;
-    color: #0a0a0a;
+    color: #283744;
+    font-size: 12px;
+
+}
+.user-role
+{
+    font-size: 10px;
+    font-weight: bold;
+    color: #516474;
+
+
 }
 .user-dropdown {
     position: absolute;
@@ -154,16 +164,27 @@
     padding: 10px 0;
 
 }
-
+.change-user-dropdown
+{
+    display: block;
+}
 .user-dropdown ul {
+    width: 100%;
     list-style: none;
     gap: 10px;
     display: flex;
     flex-direction: column;
 }
-
+.user-dropdown ul li
+{
+    width: 100%;
+    display: flex;
+    /* background-color: green; */
+    /* padding: 6px; */
+}
 .user-dropdown a {
-    padding: 10px;
+    width: 100%;
+    padding: 6px;
     text-decoration: none;
     color: #333;
     font-size: 12px;
