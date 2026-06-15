@@ -121,20 +121,18 @@ const Dashboard = () => {
 
                    </div>
 
-                   <Container fluid >
-                    {/* <Row sm={2} md={3} lg={4} xl={6} className="g-3 justify-content-center align-items-center">  */}
-                    <Row sm={2} md={3} lg={4} xl={6} className="g-3 align-items-center"> 
-                        {
-                        cardData.map((card, index)=>(
+                  <Container fluid>
+  <Row md={2} lg={3} xl={4} xxl={8} className="g-3 align-items-center"> 
+    {
+      cardData.map((card, index) => (
+        <Col key={index}>
+          <DashboardUppperCards {...card} />
+        </Col>
+      ))
+    }
+  </Row>
+</Container>
 
-<DashboardUppperCards
-key={index}
-{...card}
-/>
-                        ))
-                    }
-                    </Row>
-                   </Container>
 
 <DashboardMiddleCards/>
 

@@ -112,10 +112,10 @@ return(
 <div className="dashboard-recent-actions-header">
     <span className="dashboard-recent-actions-header-title">
         Recent Stock Movments
-<h1>
+{/* <h1>
         {windowWidth}
 
-</h1>
+</h1> */}
     </span>
     <span className="dashboard-recent-actions-header-view-all-movemnt-button">
         <span>

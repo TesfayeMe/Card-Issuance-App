@@ -101,19 +101,19 @@ useEffect(()=>{
 
       </div>
         <ul id='side-menu-list' onClick={(e)=>setMenuClick(true)}>
-            <li className='side-menu-major-list'><DashboardCustomizeSharpIcon/>Dashboard<span></span></li>
+            <li className='side-menu-major-list' onClick={()=>navigate('/dashboard')}><DashboardCustomizeSharpIcon/>Dashboard<span></span></li>
             {authenticatedUser && authenticatedUser.role_id < 3 && (
-            <li className='side-menu-major-list'><PeopleSharpIcon/>User Management<KeyboardArrowRightSharpIcon/></li>
+            <li className='side-menu-major-list'  onClick={()=>navigate('/user-management')}><PeopleSharpIcon/>User Management<KeyboardArrowRightSharpIcon/></li>
             )}
-            <li className='side-menu-major-list'> <PrintSharpIcon/> Machines <KeyboardArrowRightSharpIcon/></li>
-            <li className='side-menu-major-list'><ViewModuleRoundedIcon/>Machine Modules<KeyboardArrowRightSharpIcon/></li>
-            <li className='side-menu-major-list'><BuildSharpIcon/>Spare Parts<KeyboardArrowRightSharpIcon/></li>
-            <li className='side-menu-major-list'><InventorySharpIcon/> Inventory<KeyboardArrowRightSharpIcon/></li>
-            <li className='side-menu-major-list'> <RepeatRoundedIcon/>Stock Movement<KeyboardArrowRightSharpIcon/></li>
-            <li className='side-menu-major-list'><ErrorSharpIcon/>Incident Management<KeyboardArrowRightSharpIcon/></li>
-            <li className='side-menu-major-list'><img className='' style={{width: '35px', height: '35px'}} src={idProcIcon}/>ID Proccessing<KeyboardArrowRightSharpIcon/></li>
-            <li className='side-menu-major-list'><AssessmentSharpIcon/>Reports<KeyboardArrowRightSharpIcon/></li>
-            <li className='side-menu-major-list'><SettingsSharpIcon/>Settings<KeyboardArrowRightSharpIcon/></li>
+            <li className='side-menu-major-list'  onClick={()=>navigate('/machines')}> <PrintSharpIcon/> Machines <KeyboardArrowRightSharpIcon/></li>
+            <li className='side-menu-major-list'  onClick={()=>navigate('/machine-modules')}><ViewModuleRoundedIcon/>Machine Modules<KeyboardArrowRightSharpIcon/></li>
+            <li className='side-menu-major-list'  onClick={()=>navigate('/spares')}><BuildSharpIcon/>Spare Parts<KeyboardArrowRightSharpIcon/></li>
+            <li className='side-menu-major-list'  onClick={()=>navigate('/inventory')}><InventorySharpIcon/> Inventory<KeyboardArrowRightSharpIcon/></li>
+            <li className='side-menu-major-list'  onClick={()=>navigate('/stock')}> <RepeatRoundedIcon/>Stock Movement<KeyboardArrowRightSharpIcon/></li>
+            <li className='side-menu-major-list'  onClick={()=>navigate('/machine-incident')}><ErrorSharpIcon/>Incident Management<KeyboardArrowRightSharpIcon/></li>
+            <li className='side-menu-major-list'  onClick={()=>navigate('/id-processing')}><img className='' style={{width: '35px', height: '35px'}} src={idProcIcon}/>ID Proccessing<KeyboardArrowRightSharpIcon/></li>
+            <li className='side-menu-major-list'  onClick={()=>navigate('/reports')}><AssessmentSharpIcon/>Reports<KeyboardArrowRightSharpIcon/></li>
+            <li className='side-menu-major-list'  onClick={()=>navigate('/setting')}><SettingsSharpIcon/>Settings<KeyboardArrowRightSharpIcon/></li>
         </ul>
      {
        authenticatedUser && (<h3 style={{color: 'black'}}> {authenticatedUser?.first_name}</h3>)

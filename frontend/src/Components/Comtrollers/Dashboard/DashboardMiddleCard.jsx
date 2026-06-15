@@ -5,6 +5,9 @@ import { PieChart } from '@mui/x-charts/PieChart';
 import {Typography } from '@mui/material'; // Using MUI layout utilities
 import KeyboardArrowDownSharpIcon from '@mui/icons-material/KeyboardArrowDownSharp';
 import EastSharpIcon from '@mui/icons-material/EastSharp';
+import { ChartsContainer } from '@mui/x-charts/ChartsContainer';
+import { LinePlot, MarkPlot } from '@mui/x-charts/LineChart';
+// import { Box } from '@mui/material';
 const DashboardMiddleCards = ({ data }) => {
 
 //stock movement
@@ -84,14 +87,15 @@ const incidentSettings = {
 };
 const IncidentTotalValue = (incidentPieChartData || []).reduce((sum, item) => sum + item.value, 0);
 //Incident js end
-
+//  const { ref, width, height } = useResizeObserver();
 
 
   return (
-    <div className="dashboard-middle-card-container">
+    <div className="dashboard-middle-card-container p-3">
 
    <Container fluid>
-  <Row lg={2} xl={3} className="align-items-center">
+  <Row xl={3} className="g-3 align-items-center">
+    
 <div className="dashboard-middle-cards inventory-overview-card">
 <h1></h1>
 <div className="dashboard-middle-cards-header">
@@ -238,54 +242,53 @@ const IncidentTotalValue = (incidentPieChartData || []).reduce((sum, item) => su
 </span>
 </div>
 
-<div  className="dashboard-middle-cards-data stock-movement-data">
+<div  className="dashboard-middle-cards-data stock-movement-data" style={{width: '100%'}}>
   
-    {/* <Box sx={{ height: 90 }}> */}
-    <Box sx={{ width: 450, height: 200 }}>
-      {/* Invisible SVG for the gradient definitions */}
-      <svg style={{ display: 'block', height: 0 }}>
-        <defs>
-          <linearGradient id="gradient1" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#1976d2" stopOpacity={0.5} />
-            <stop offset="100%" stopColor="#1976d2" stopOpacity={0} />
-          </linearGradient>
-          <linearGradient id="gradient2" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#c319d2" stopOpacity={0.5} />
-            <stop offset="100%" stopColor="#d219d2" stopOpacity={0} />
-          </linearGradient>
-        </defs>
-      </svg>
+<Box sx={{ width: '100%', height: 200, position: 'relative'}}>
+  <svg style={{ display: 'block', height: 0 }}>
+    <defs>
+      <linearGradient id="gradient1" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stopColor="#1976d2" stopOpacity={0.5} />
+        <stop offset="100%" stopColor="#1976d2" stopOpacity={0} />
+      </linearGradient>
+      <linearGradient id="gradient2" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stopColor="#c319d2" stopOpacity={0.5} />
+        <stop offset="100%" stopColor="#d219d2" stopOpacity={0} />
+      </linearGradient>
+    </defs>
+  </svg>
 
-      <LineChart 
-        style={{ marginTop: '-10px' }}
-        series={[
-          { 
-            data: outStock, label: 'Out Stock', 
-            area: true, 
-            showMark: true, 
-            color: 'url(#gradient1)', // Apply first gradient here
-          },
-          { 
-            data: inStock, 
-            label: 'In Stock',
-            area: true, 
-            showMark: true, 
-            color: 'url(#gradient2)', // Apply second gradient here
-          },
-        ]}
-        xAxis={[{ scaleType: 'point', data: stockMonths }]}
-        bottomAxis={null}
-        leftAxis={null}
-        margin={{ top: 0, right: 0, bottom: -5, left: -5 }}
-        // margin={{ top: 0, right: 0, bottom: 25, left: 46 }}
-      />
-    </Box>
+  <LineChart 
+    // height={170}
+    series={[
+      { 
+        data: outStock, 
+        label: 'Out Stock', 
+        area: true, 
+        // showMark: true, 
+        color: 'url(#gradient1)',
+      },
+      { 
+        data: inStock, 
+        label: 'In Stock',
+        area: true, 
+        // showMark: true, 
+        color: 'url(#gradient2)',
+      },
+    ]}
+    xAxis={[{ scaleType: 'point', data: stockMonths }]}
+    bottomAxis={null}
+    leftAxis={null}
+    margin={{ top: 0, right: 0, bottom: -5, left: -5 }}
+  />
+</Box>
   
   
 </div>
-<div className="dashboard-middle-container-horizontal-line">
 
-</div>
+<div className="dashboard-middle-container-horizontal-line" ></div>
+
+
 <div className="dashboard-middle-container-view-detials-button">
 <div className="dashboard-middle-container-view-detials-button-container">
   <span>
