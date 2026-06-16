@@ -12,6 +12,98 @@
 .machine-controller-container
 {
     width: calc(100% - 250px);
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
+}
+.machine-controller-container-header
+{
+    display: flex;
+    flex-direction: column;
+    padding: 5px 18px 0;
+
+}
+.machine-controller-container-header-title
+{
+    font-weight: bold;
+    font-size: 23px;
+    color: rgb(5, 58, 58);
+}
+.machine-controller-container-header-directory
+{
+    font-size: 13px;
+    color: rgb(114, 116, 116);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+}
+.machine-controller-container-main
+{
+    width: 100%;
+    padding: 0 15px;
+}
+/* Upper card css start */
+
+.machine-controller-upprt-cards-container
+{
+    
+    padding: 14px;
+    margin: 10px;
+    border: 1px solid rgb(226, 230, 236);
+    border-radius: 5px;
+    display: flex;
+    gap: 5px;
+    background-color: rgb(240, 244, 248);
+}
+.machine-controller-upprt-cards-container-left
+{
+    padding: 10px;
+    display: flex;
+    border-radius: 8px;
+}
+.machine-controller-upprt-cards-container-right
+{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    gap: 15px;
+    padding: 0 15px;
+}
+
+.machine-controller-upper-cards-container-right-top
+{
+    display: flex;
+    flex-direction: column;
+}
+.machine-controller-upprt-cards-container-right-total
+{
+    font-weight: bold;
+    font-size: 20px;
+}
+.machine-controller-upprt-cards-container-right-title
+{
+    font-size: 12px;
+}
+.machine-controller-upper-cards-container-right-bottom
+{
+    font-size: 12px;
+}
+/* Upper card css start */
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 912px) {
+    .machine-controller-container{
+        width: 100%;
+    }
 }
