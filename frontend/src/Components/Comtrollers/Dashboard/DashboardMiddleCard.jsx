@@ -299,6 +299,9 @@ const IncidentTotalValue = (incidentPieChartData || []).reduce((sum, item) => su
 </div>
 
 </div>
+
+
+
 <div className="dashboard-middle-cards Incidents-by-status">
 <div className="dashboard-middle-cards-header">
   <span className="dashboard-middle-cards-header-left">

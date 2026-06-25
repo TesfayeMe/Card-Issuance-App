@@ -4,6 +4,12 @@ import Header from '../Header/Header'
 import UpperCards from './UpperCards';
 import KeyboardArrowRightSharpIcon from '@mui/icons-material/KeyboardArrowRightSharp';
 import { Container, Row, Col, Card } from "react-bootstrap";
+import MachineLists from './MachineLists';
+import MachineTypeSummary from './MachineTypeSummary';
+import SearchIcon from '@mui/icons-material/Search';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import MachineLocationOverView from './MachineLocationOverView'
+import RightSideMachineController from './RightSideMachineController'
 const MachineController = ()=>{
     const machineData = [
         {
@@ -59,15 +65,66 @@ return (
   </Row>
 </Container>
     </div>
+
+
     <div  className='machine-controller-container-main-left-machine-lists'>
-Machine lists
+       
+        <div className='machine-list-criteria-container'> 
+<div className='search-machines-container'>
+    <span className='search-btn'>
+        <SearchIcon fontSize=''/>
+    </span>
+    <input type='text' placeholder='Search machines...' className='search-machines-search-field'/>
+</div>
+<div className='machine-type-criteria'>
+<select className='machine-type-criteria-selection  criteria-selection'>
+    <option value={'all'}>All Types</option>
+    <option value={'MX-Series'}>MX Series</option>
+    <option value={'DS4-ES1'}>DS4-ES1</option>
+    <option value={'DX-Mailer'}>DX Mailer</option>
+    <option value={'DFX-Printer'}>DFX Printer</option>
+</select>
+</div>
+<div className='machine-status-criteria'>
+    <select className='machine-type-criteria-selection criteria-selection'>
+    <option value={'all'}>All Status</option>
+    <option value={'Active'}>Active</option>
+    <option value={'Maintenance'}>Maintenance</option>
+    <option value={'Out-of-service'}>Out of Service</option>
+    <option value={'new'}>New</option>
+</select>
+</div>
+<div className='machine-location-criteria'>
+    <select className='machine-location-criteria-selection criteria-selection'>
+    <option value={'all'}>All Locations</option>
+    <option value={'Active'}>Zagwe Bldg</option>
+    <option value={'Maintenance'}>Various Locations</option>
+    <option value={'Out-of-service'}>Kera Backup</option>
+</select>
+</div>
+<div className='add-new-machine-btn-controller'>
+<button>
+    + <span>Add Machine</span>
+    </button>
+</div>
+<div className='three-dots-for-option-popup'>
+<button>
+    <MoreVertIcon fontSize=''/>
+    </button>
+</div>
+        </div>
+<MachineLists/>
     </div>
-    <div  className='machine-controller-container-main-left-machine-type-summary'>
-Machine type summary
+    <div  className='machine-controller-container-main-left-machine-type-summary-andlocation-overview'>
+<MachineTypeSummary/>
+<MachineLocationOverView/>
     </div>
 </div>
+
+
+
 <div  className='machine-controller-container-main-right'>
-    <div   className='machine-controller-container-main-right-machine-chart-by-type'>
+    {/* <div   className='machine-controller-container-main-right-machine-chart-by-type'>
 Machine by Type
     </div>
     <div   className='machine-controller-container-main-right-machine-status-overview'>
@@ -76,7 +133,8 @@ Machine by Type
     </div>
     <div className='machine-controller-container-main-right-recent-machine-maintenatnce'>
 Recent Maintenance
-    </div>
+    </div> */}
+    <RightSideMachineController/>
 </div>
 </div>
 

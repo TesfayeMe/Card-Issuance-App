@@ -43,18 +43,21 @@
 {
     width: 100%;
     padding: 0 15px;
+    display: flex;
+    /* background-color: gray; */
+    justify-content: space-between;
 }
 /* Upper card css start */
 
 .machine-controller-upprt-cards-container
 {
     
-    padding: 14px;
+    padding: 4px;
     margin: 10px;
     border: 1px solid rgb(226, 230, 236);
     border-radius: 5px;
     display: flex;
-    gap: 5px;
+    /* gap: 5px; */
     background-color: rgb(240, 244, 248);
 }
 .machine-controller-upprt-cards-container-left
@@ -90,18 +93,311 @@
 {
     font-size: 12px;
 }
-/* Upper card css start */
+.double-wrench
+{
+background-color: rgba(0, 255, 255, 0.281);
+width: 35px;
+height: 35px;
+display: flex;
+align-items: center;
+padding: 4px;
+border-radius: 5px;
+}
+.icons
+{
+    width: 100%;
+    min-width: 55px;
+    min-height: 55px;
+    padding: 5px 3px;
+    border-radius: 5px;
+}
+.machines-icon
+{
+    color: #702fad;
+    background-color: #b69ecc44;
+}
+.active-machines-icon
+{
+    color: #2ba052;
+    background-color: #64b6802c;
+}
+.machines-in-maintenance-icon
+{
+    color: #c9ab05;
+    background-color: #c9ac0523;
+}
+.out-of-service-machines-icon
+{
+    color: #fc2c2c;
+    background-color: #fc2c2c1a;
+}
+/* Upper card css end */
+/* right cards start */
+.machine-controller-container-main-right
+{
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
 
+}
+.right-side-machine-controller-container
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 12px;
+}
+.right-side-machine-card-title
+{
+    font-weight: bold;
+}
+.right-side-machine-controller-container-machine-by-type, .right-side-machine-controller-container-machine-status-overview
+, .right-side-machine-controller-container-machine-recent-maintenance{
+    border: 1px solid rgb(226, 233, 240);
+    padding: 10px;
+    border-radius: 5px;
+}
+.right-side-machine-card-title-and-view-all-btn
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 10px;
+}
+/* right cards end */
+.machine-controller-container-main-left-machine-lists
+{
+    display: flex;
+    /* background-color: #f4fafd; */
+    flex-direction: column;
+    padding: 5px;
+    border: 2px solid #e7eeee;
+    border-radius: 6px;
+    width: 100%;
+    gap: 10px;
+}
+.machine-list-criteria-container
+{
+    display: flex;
+    width: 100%;
+    padding: 5px;
+    gap: 10px;
+}
+.search-machines-container
+{
+    border: 1px solid #e7eeee;
+    border-radius: 6px;
+    padding: 1px 10px;
+    background-color: #f7f7f8;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    width: 35%;
+    min-width: 180px;
+    max-width: 370px;
+}
+.search-machines-search-field
+{
+    border: none;
+    background-color: transparent;
+    font-size: 12px;
+    width: 95%;
+    min-width: 140px;
+    max-width: 350px;
+    outline: none;
+}
+.search-machines-container:focus-within {
+  border: 1px solid rgb(193, 220, 243); /* Change 'green' to any color you need */
+}
+.machine-type-criteria, .machine-status-criteria, .machine-location-criteria
+{
+    /* background-color: yellow; */
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(223, 233, 240);
+    padding: 0 10px;
+    border-radius: 6px;
+}
+.criteria-selection
+{
+    background-color: transparent;
+    border: none;
+    display: flex;
+    gap: 30px;
+    font-size: 11px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer; 
+  padding-right: 10px;  
+}
+.add-new-machine-btn-controller
+{
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+}
+.add-new-machine-btn-controller button
+{
+    background-color: #0062e2;
+    border: 1px solid #023d8a;
+    border-radius: 4px;
+    color: white;
+    width: 80px;
+    padding: 4px 0;
+    text-wrap: unset;
+    display: flex;
+    gap:5px;
+    align-items: center;
+    justify-content: center;
+}
+.three-dots-for-option-popup
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.three-dots-for-option-popup button
+{
+    
+    border: 1px solid rgb(217, 232, 233);
+    border-radius: 3px;
+    cursor: pointer;
+    
+}
+.action-buttons-machine-list
+{
+    border: 1px solid rgb(208, 225, 233);
+    padding: 2px 4px;
+    border-radius: 4px;
 
+}
+.action-buttons-machine-list-edit
+{
+    background-color: #97c0f562;
+    color: rgb(0, 110, 255);
+}
+.machine-code-and-total
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
 
-
-
-
-
-
-
-
-
+}
+.machine-total
+{
+    position: absolute;
+    color: #0062e2;
+    top: 15px;
+    font-size: 9px;
+    font-weight: bold;
+    background-color: #9dc8ff42;
+    padding: 1px 10px;
+    text-align: center;
+    border-radius: 5px;
+    
+}
+.table-bottom-pagenation-view
+{
+display: flex;
+/* background-color: #0062e2; */
+justify-content: space-between;
+align-items: center;
+padding: 15px 10px;
+font-size: 13px;
+}
+.table-bottom-pagenation-view-button-control
+{
+display: flex;
+gap: 10px;
+}
+.table-bottom-pagenation-view-button-control button{
+    min-width: 30px;
+    border-radius: 4px;
+    border: 1px solid #dcedfa;
+    color: rgb(66, 66, 66);
+}
+.pagnation-page
+{
+    background-color: #0062e2;
+    color: white;
+    width: 30px;
+    text-align: center;
+    padding-top: 3px;
+    border-radius: 4px;
+    /* font-size: 13px; */
+}
+.machine-controller-container-main-left-machine-type-summary-andlocation-overview
+{
+    width: 100%;
+    /* background-color: yellow; */
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+.machin-summary-container-and-location-overview
+{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(223, 239, 243)
+}
+.data-left-for-labels-machine-type
+{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.data-left-for-labels-title-machine-type
+{
+    min-width: 70px;
+    font-weight: bold;
+}
+.data-left-for-labels-each-machine-type
+{
+    display: flex;
+    gap: 10px;
+    position: relative;
+}
+.data-left-for-labels-each-label-color-machine-type
+{
+    width: 10px;
+    height: 10px;
+}
+.ds4-color
+{
+    background-color: #498ee9;
+}
+.dfx-color
+{
+    background-color: #3dbd76;
+}
+.mx81-color
+{
+    background-color: #f7b763;
+}
+.dx-color
+{
+    background-color: #fa7979;
+}
+.mx1100-color
+{
+background-color: rgb(255, 0, 234) ;
+}
+.data-left-for-labels-text-machine-type
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+.data-left-for-labels-title-machine-type
+{
+    font-weight: bold;
+}
+.data-left-for-labels-title-machine-type, .data-left-for-labels-value-machine-type
+{
+    font-size: 11px;
+}
 @media screen and (max-width: 912px) {
     .machine-controller-container{
         width: 100%;

@@ -13,13 +13,14 @@ const UpperCards = ({ machineData }) => {
   const renderIcon = (iconType) => {
     switch (iconType) {
       case 'machine':
-        return <PrintSharpIcon />;
+        return <PrintSharpIcon className='icons machines-icon' />;
       case 'active':
-        return <CheckCircleTwoToneIcon />;
+        return <CheckCircleTwoToneIcon  className='icons active-machines-icon'  />;
       case 'maintenance': // Corrected spelling typo here
-        return <img src={doubleWrench} alt="wrench icon" />;
+      return <ConstructionSharpIcon  className='icons machines-in-maintenance-icon' />;
+        // return <img className='double-wrench' src={doubleWrench} alt="wrench icon" />;
       case 'out-of-service': // Added as a fallback if iconType is 'engineering'
-        return <CancelOutlinedIcon />;
+        return <CancelOutlinedIcon  className='icons out-of-service-machines-icon' />;
       default:
         return null;
     }
