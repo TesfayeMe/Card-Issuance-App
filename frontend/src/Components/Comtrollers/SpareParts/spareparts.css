@@ -1,0 +1,304 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.spare-part-page {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.spare-part-page-container {
+
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: calc(100% - 250px);
+    /* padding: 20px; */
+    background-color: #f5f5f5;
+}
+
+.spare-part-page-controller {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    border-top-left-radius: 20px;
+    background-color: #f5f5f5;
+    /* background-color: #811d1d; */
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+
+
+}
+.spare-part-page-controller-left
+{
+    width: 100%;
+    height: 2500px;
+    /* background-color: aqua; */
+}
+.spare-part-page-controller-right
+{
+    width: 50%;
+    height: 2500px;
+    /* background-color: aqua; */
+}
+.spare-part-uppercards
+{
+    /* background-color: yellow; */
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    justify-content: space-between;
+}
+.spare-part-uppercards-card
+{
+    border: 1px solid rgb(230, 234, 238);
+    background-color: #f1f3f5;
+    padding: 10px;
+    border-radius: 5px;
+    width: 32%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 12px;
+}
+.spare-part-uppercards-card-icon-and-descrition
+{
+    display: flex;
+    gap: 10px;
+}
+.spare-part-uppercards-card-icons
+{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+.spare-part-uppercards-card-icon
+{
+    padding: 10px;
+    border-radius: 5px;
+}
+.spare-part-uppercards-card-icon-total-instock
+{
+    background-color: #2c73f72c;
+    color: #0059ff;
+}
+.spare-part-uppercards-card-icon-low-stock
+{
+    background-color: #cf56052c;
+    color: #ff9100;
+}
+.spare-part-uppercards-card-icon-pending-orders
+{
+      background-color: #4dc06a2c;
+    color: #2ab83d;
+}
+.spare-part-uppercards-card-description
+{
+    display: flex;
+    flex-direction: column;
+    /* background-color: yellow; */
+    padding: 0 10px;
+    
+}
+.spare-part-uppercards-card-description-label
+{
+    font-weight: bold;
+}
+.spare-part-uppercards-card-description-quantity
+{
+    font-weight: bold;
+    font-size: 18px;
+}
+.spare-part-uppercards-card-changes-in-duration
+{
+    display: flex;
+    flex-direction: column;
+    /* align-items: end; */
+    justify-content: end;
+
+}
+.spare-part-uppercards-card-changes-in-duration-controller
+{
+display: flex;
+flex-direction: column;
+gap: 3px;
+}
+.red-arrow
+{
+    color: red;
+}
+.green-arrow
+{
+    color: #09b970;
+}
+
+/* spare parts inventory css start */
+.spare-parts-inventory-container
+{
+display: flex;
+flex-direction: column;
+gap: 3px;
+border: 1px solid rgb(229, 232, 233);
+padding: 10px;
+border-radius: 5px;
+margin-top: 10px;
+background-color: #f3f4f7;
+}
+.spare-parts-inventory-container-header
+{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.spare-parts-inventory-container-title
+{
+    font-weight: bold;
+}
+.spare-parts-inventory-container-view-purchase-requests-btn
+{
+    font-size: 12px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    color: #0059ff;
+    cursor: pointer;
+}
+.spare-parts-inventory-table-display-criteria
+{
+width: 100%;
+display: flex;
+justify-content: space-between;
+margin: 10px 0;
+border-top: 1px solid rgb(223, 227, 228);
+padding-top: 10px;
+font-size: 12px;
+}
+.spare-parts-inventory-table-display-criteria-search-bar
+{
+    background-color: #f9fbfc;
+    border: 1px solid #e5e8e9;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 2px 8px;
+}
+.spare-parts-inventory-table-display-criteria-search-input
+{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: 13px; 
+    min-width: 200px;
+    height: 25px;
+}
+.spare-parts-inventory-table-display-criteria-search-bar:focus-within
+{
+    border: 1px solid #cbd6dd;
+}
+.selection-control
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   background-color: #f9fbfc;
+    border: 1px solid #e5e8e9;
+  padding: 3px 5px;
+  border-radius: 5px;  
+}
+.spare-parts-inventory-list-select
+{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+.selection-control:focus-within
+{
+     border: 1px solid #cbd6dd;
+}
+.export-spare-btn
+{
+    background-color: #0059ff;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: #0059ff;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+.spare-parts-inventory-table-display-table-list-page
+{
+display: flex;
+justify-content: space-between;
+align-content: center;
+font-size: 12px;
+margin: 10px 0;
+}
+.spare-parts-inventory-table-display-table-list-page-buttons
+{
+    display: flex;
+    gap: 7px;
+}
+.spare-parts-inventory-list-page-control-buttons
+{
+    min-width: 30px;
+    cursor: pointer;
+    border: 1px solid #d5d8df;
+    background-color: #e3e7f0;
+    border-radius: 5px;
+    padding: 3px;
+}
+.displayed-page-number
+{
+    background-color: #0059ff;
+    color: white;
+    font-weight: bold;
+}
+/* spare parts inventory css end */
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1350px) {
+.spare-part-uppercards-card
+{
+flex-direction: column;
+}  
+}
+@media screen and (max-width: 1150px) {
+.spare-part-uppercards-card-icon-and-descrition
+{
+flex-direction: column;
+justify-content: start;
+/* background-color: #0059ff; */
+}  
+.spare-part-uppercards-card-icons
+{
+    display: flex;
+    /* justify-content: start; */
+}
+}
