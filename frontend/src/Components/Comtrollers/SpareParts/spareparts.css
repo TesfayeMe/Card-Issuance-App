@@ -6,7 +6,7 @@
 
 .spare-part-page {
     display: flex;
-    height: 100vh;
+    /* height: 100vh; */
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -38,13 +38,13 @@
 .spare-part-page-controller-left
 {
     width: 100%;
-    height: 2500px;
+    /* height: 2500px; */
     /* background-color: aqua; */
 }
 .spare-part-page-controller-right
 {
     width: 50%;
-    height: 2500px;
+    /* height: 2500px; */
     /* background-color: aqua; */
 }
 .spare-part-uppercards
@@ -174,9 +174,11 @@ background-color: #f3f4f7;
 width: 100%;
 display: flex;
 justify-content: space-between;
-margin: 10px 0;
+margin-top: 10px;
 border-top: 1px solid rgb(223, 227, 228);
+border-bottom: 1px solid rgb(223, 227, 228);
 padding-top: 10px;
+padding-bottom: 20px;
 font-size: 12px;
 }
 .spare-parts-inventory-table-display-criteria-search-bar
@@ -272,14 +274,325 @@ margin: 10px 0;
     color: white;
     font-weight: bold;
 }
+.pare-parts-inventory-table-display-table-action-btns
+{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.pare-parts-inventory-table-display-table-action-btns button
+{
+    padding: 4px;
+    border: 1px solid rgb(215, 229, 248);
+    border-radius: 5px;
+   
+
+}
+.pare-parts-inventory-table-display-table-action-request-spare-btn
+{
+     background-color: #0059ff;
+    color: #ffffff;
+}
+.pare-parts-inventory-table-display-table-action-edit-part-btn
+{
+    background-color: #f0f3fa;
+    color: #0059ff;
+}
+.in-stock
+{
+    background-color: #00b90021;
+    color: rgb(0, 189, 0);
+    border-radius: 5px;
+    border: 1px solid #00b9001f;
+    padding: 4px 6px;
+}
+.low-stock
+{
+     background-color: #b9b60021;
+    color: rgb(189, 154, 0);
+    border-radius: 5px;
+    border: 1px solid #b997001f;
+    padding: 4px 6px;
+}
+.critical-low
+{
+     background-color: #b9000021;
+    color: rgb(189, 0, 0);
+    border-radius: 5px;
+    border: 1px solid #b900001f;
+    padding: 4px 6px;
+}
+.empty-stock
+{
+       background-color: #b9000021;
+    color: rgb(189, 0, 0);
+    border-radius: 5px;
+    border: 1px solid #b900001f;
+    padding: 4px 6px;
+}
 /* spare parts inventory css end */
+.recent-used-spares-and-low-stock-alerts
+{
+    display: flex;
+    gap: 15px;
+}
+/* spares recent used spare part css start */
+.spares-recent-used-spare-part
+{
+    width: 100%;
 
-
-
-
-
-
-
+display: flex;
+flex-direction: column;
+gap: 3px;
+border: 1px solid rgb(229, 232, 233);
+padding: 10px;
+border-radius: 5px;
+margin-top: 10px;
+background-color: #f3f4f7;
+}
+.spares-recent-used-spare-part-header
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px 13px 5px;
+    border-bottom: 1px solid #d1d9df;
+}
+.spares-recent-used-spare-part-header-title
+{
+    font-weight: bold;
+}
+.spares-recent-used-spare-part-header-view-all-btn
+{
+    font-size: 13px ;
+    color: #0059ff;
+    cursor: pointer;
+}
+/* spares recent used spare part css end */
+/* spares low stock alerts container header css start */
+.spares-low-stock-alerts-container
+{
+    width: 100%;
+ display: flex;
+flex-direction: column;
+gap: 3px;
+border: 1px solid rgb(229, 232, 233);
+padding: 10px;
+border-radius: 5px;
+margin-top: 10px;
+background-color: #f3f4f7;
+}
+.spares-low-stock-alerts-container-header
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px 13px 5px;
+    border-bottom: 1px solid #d1d9df;
+}
+.spares-low-stock-alerts-container-header-title
+{
+    font-weight: bold;
+}
+.spares-low-stock-alerts-container-header-view-all-btn
+{
+    font-size: 13px ;
+    color: #0059ff;
+    cursor: pointer;
+}
+/* spares low stock alerts container header css end */
+.spare-part-page-controller-right
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+/* predictive maintenance css starts */
+.predictive-maintenance-container
+{
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    border: 1px solid #e5e8e9;
+    padding: 10px;
+    border-radius: 5px;
+    /* margin-top: 10px; */
+    background-color: #f3f4f7;
+}
+.predictive-maintenance-title
+{
+    font-weight: bold;
+    font-size: 15px;
+}
+.predictive-maintenance-content
+{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 13px;
+    padding: 5px 10px;
+    border: 1px solid #e5e8e9;
+    border-radius: 5px;
+}
+.predictive-maintenance-content-title
+{
+    font-weight: bold;
+    font-size: 14px;
+}
+.predictive-maintenance-content-essay
+{
+    font-size: 13px;
+}
+.predictive-maintenance-recommendations
+{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px 10px;
+    border: 1px solid #e5e8e9;
+    border-radius: 10px;
+    border-left: 5px solid #0059ff;
+}
+.predictive-maintenance-recommendations ul
+{
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.predictive-maintenance-recommendations ul li
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.predictive-maintenance-view-all
+{
+    font-size: 13px;
+    color: #0059ff;
+    cursor: pointer;
+    padding: 5px 10px;
+    text-align: center;
+}
+.high_priority
+{
+    border-left: 5px solid #ff0000;
+}
+.medium_priority
+{
+    border-left: 5px solid #ffaa00;
+}
+.low_priority
+{
+    border-left: 5px solid #00ff00;
+}
+.high_priority_color
+{
+    color:  #ff0000;
+}
+.medium_priority_color
+{
+    
+    color: #d18d04;
+}
+.low_priority_color
+{
+    color:  #029b02;
+}
+.high_priority_left_bg
+{
+    background-color: #ffd3d3;
+     padding: 5px 8px;
+    border-radius: 5px;
+}
+.medium_priority_left_bg
+{
+    background-color: #fce5b8;
+        padding: 5px 8px;
+    border-radius: 5px;
+}
+.low_priority_left_bg
+{
+    background-color: #a3fca3;
+         padding: 5px 8px;
+    border-radius: 5px;
+}
+/*  predictive maintenance css ends */
+/* spare usage trend css starts */
+.spare-usage-trend-container
+{
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    border: 1px solid #e5e8e9;
+    padding: 10px;
+    border-radius: 5px;
+    /* margin-top: 10px; */
+    background-color: #f3f4f7;
+}
+.spare-usage-trend-header
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px 13px 5px;
+    border-bottom: 1px solid #d1d9df;
+}
+.spare-usage-trend-select
+{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid #d5dcdf;
+    border-radius: 5px;
+    padding: 3px 5px;
+    font-size: 13px;
+}
+.spare-usage-trend-footer
+{
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    padding: 5px 10px 13px 5px;
+    border-top: 1px solid #d1d9df;
+    margin-top: 10px;
+    padding-top: 20px;
+}
+.spare-part-usage-trend-total-parts-used
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    font-size: 13px;
+    width: 100%;
+}
+.spare-usage-trend-total-parts-used-value, .spare-usage-trend-monthly-average-value
+{
+    font-weight: bold;
+    color: #6b727a;
+    font-size: 25px;
+}
+.spare-usage-trend-in-percentage
+{
+    display: flex;
+    align-items: center;
+}
+.spare-usage-trend-in-percentage
+{
+    color: rgb(0, 204, 0);
+}
+.spare-part-usage-trend-manthly-average
+{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 13px;
+    padding: 5px 10px;
+    width: 100%;
+    border-left: 1px solid #d1d9df;
+    padding-left: 20px;
+}
+/* spare usage trend css end */
 
 
 
